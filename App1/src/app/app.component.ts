@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'My first step';
 
+  Current_currency:any={
+    usd: 0,
+    uah: 0
+  }
+
+
 }

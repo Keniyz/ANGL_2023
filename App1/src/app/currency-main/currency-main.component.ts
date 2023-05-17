@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-currency-main',
@@ -6,12 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./currency-main.component.css']
 })
 export class CurrencyMainComponent {
-  Current_currency={
-    usd: 1,
-    uah: 42
-  }
+  @Input() Current_currency:any={}
+  show: boolean =false;
+
 
   Generate_currency(){
+    this.show =true;
     this.Current_currency.usd=100;
     this.Current_currency.uah=4000;
   }

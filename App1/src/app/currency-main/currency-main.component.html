@@ -1,10 +1,25 @@
-<div class="box">
+<!--
+  <div class="box" ngClass="{'show':show, 'hidden':!show}">
     <div><h2>{{Current_currency.usd}}</h2></div>
     <div><h2>{{Current_currency.uah}}</h2></div>
   </div>
+-->
+<!-- 
+<div class="box" *ngIf="show">
+  <div><h2>{{Current_currency.usd}}</h2></div>
+  <div><h2>{{Current_currency.uah}}</h2></div>
+</div>
   <div class="box">
     <h1>
       <button (click)="Generate_currency()">OK</button>
       <button (click)="Clear_currency()">CANCEL</button>
   </h1>
   </div>
+-->
+<mat-form-field class="example-form-field">
+  <mat-label>Clearable input</mat-label>
+  <input matInput type="text">
+  <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear">
+    <!-- <mat-icon>close</mat-icon> -->
+  </button>
+</mat-form-field>

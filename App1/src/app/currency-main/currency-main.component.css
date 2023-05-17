@@ -9,3 +9,12 @@ h2{
 .container{overflow:hidden;width:100%; text-align: center}
 .box{white-space:nowrap}
 .box div{width:200px;display:inline-block;border:1px solid black}
+.show{
+    display: block;
+}
+.hidden{
+    display: none;
+}
+.example-form-field {
+    width: 200px;
+  }
