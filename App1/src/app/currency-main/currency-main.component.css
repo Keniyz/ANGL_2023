@@ -6,15 +6,51 @@ h2{
     color: black;
     text-align: center;
 }
-.container{overflow:hidden;width:100%; text-align: center}
+.container{overflow:hidden; width:100%; text-align: center}
 .box{white-space:nowrap}
 .box div{width:200px;display:inline-block;border:1px solid black}
+.box2{white-space:nowrap;width:100px;display:inline-block;border:0px}
 .show{
     display: block;
 }
 .hidden{
     display: none;
 }
-.example-form-field {
+.input-form-field {
     width: 200px;
   }
+.form-field {
+    width: 100%;
+}
+section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+  
+  .example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+  .form-currency{justify-content: center; height: 250px;  overflow: auto;}

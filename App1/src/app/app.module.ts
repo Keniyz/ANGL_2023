@@ -8,12 +8,17 @@ import { CurrencyMainComponent } from './currency-main/currency-main.component';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule} from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule} from '@angular/material/input';
+import { MatIconModule} from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CurrencyViewYaroslavPipe } from './currency-view-yaroslav.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CurrencyTopComponent,
     CurrencyMainComponent,
+    CurrencyViewYaroslavPipe,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +26,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatSelectModule,
     MatButtonModule,
+    MatInputModule,
     MatIconModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

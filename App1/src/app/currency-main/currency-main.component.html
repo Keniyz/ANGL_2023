@@ -1,25 +1,77 @@
-<!--
-  <div class="box" ngClass="{'show':show, 'hidden':!show}">
-    <div><h2>{{Current_currency.usd}}</h2></div>
-    <div><h2>{{Current_currency.uah}}</h2></div>
-  </div>
--->
-<!-- 
-<div class="box" *ngIf="show">
-  <div><h2>{{Current_currency.usd}}</h2></div>
-  <div><h2>{{Current_currency.uah}}</h2></div>
+<div class="form-currency" *ngIf="local_currency.length>0 else ElseBlock">
+  <p *ngFor="let i of local_currency; index as index_number; count as count_position"> {{index_number}}) {{i | currencyViewYaroslav: 'compair': "bold' }} </p>
 </div>
-  <div class="box">
-    <h1>
-      <button (click)="Generate_currency()">OK</button>
-      <button (click)="Clear_currency()">CANCEL</button>
-  </h1>
-  </div>
--->
-<mat-form-field class="example-form-field">
-  <mat-label>Clearable input</mat-label>
-  <input matInput type="text">
-  <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear">
-    <!-- <mat-icon>close</mat-icon> -->
-  </button>
-</mat-form-field>
+
+  <div class="form-field ">
+    <div class="box">
+      <mat-form-field appearance="fill">
+        <mat-label>Тип валюти</mat-label>
+        <!-- <select matNativeControl required [formControl]="selectFormControl"> -->
+          <select matNativeControl >
+          <option label="USD">USD</option>
+          <option value="UAH">UAH</option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field class="input-form-field">
+        <mat-label>Введіть значення</mat-label>
+        <input matInput type="text" >
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    
+    <div class="box2">
+      <section>
+        <div class="example-button-row">
+          <div class="example-flex-container">
+            <div class="example-button-container">
+              <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                <mat-icon>refresh</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <div class="box">
+      <mat-form-field appearance="fill">
+        <mat-label>Тип валюти</mat-label>
+        <!-- <select matNativeControl required [formControl]="selectFormControl"> -->
+          <select matNativeControl >
+          <option label="USD">USD</option>
+          <option value="UAH">UAH</option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field class="input-form-field">
+        <mat-label>Введіть значення</mat-label>
+        <input matInput type="text" >
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+</div>
+
+
+
+<ng-template #ElseBlock>
+  <ng-container *ngIf="local_currency.length==0 else OneCurrency">
+    <p>По апі з сайту!</p>
+  </ng-container>
+</ng-template>
+
+<ng-template #OneCurrency>
+  <ng-container *ngIf="local_currency.length==1 else EmptyBlock">
+    <p *ngFor="let i of local_currency">Currency {{i.cc}} : {{i.rate}}</p>
+  </ng-container>
+</ng-template>
+
+<ng-template #EmptyBlock>
+  <p>Вибачте валюти немає!</p>
+</ng-template>
