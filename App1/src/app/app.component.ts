@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { CurrencyService } from './currency.service';
+
+
 
 @Component({
   selector: 'app-root',
@@ -7,8 +10,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'My first step';
-  word = 'Конвертація валюти згідно НБУ';
+  word ='Конвертація валюти згідно НБУ';
+  net_object: any=0;
+ 
+  constructor(public api: CurrencyService) {
+    this.api.getCurrency().subscribe(data => this.net_object = data);
+    console.log("constructor=",this.net_object);
+  }
 
+  
   currency_object: any = [
     { 
     "r030":36,"txt":"Австралійський долар","rate":24.4351,"cc":"AUD","exchangedate":"15.05.2023"

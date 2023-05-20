@@ -9,7 +9,7 @@ export class CurrencyViewYaroslavPipe implements PipeTransform {
     let result =""
 
     if(font_weight == "bold"){
-      result +="<b>";
+      result +="<b><i>";
     }
     if(view == "compair"){
       result += `${value.cc} : ${value.rate}UAH /last modify date: ${value.exchangedate}`;
@@ -18,7 +18,7 @@ export class CurrencyViewYaroslavPipe implements PipeTransform {
     }
 
     if(font_weight == "bold"){
-      result +="</b>";
+      result +="</i></b>";
     }
     return result;
   }

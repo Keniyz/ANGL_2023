@@ -1,5 +1,6 @@
+
 <div class="form-currency" *ngIf="local_currency.length>0 else ElseBlock">
-  <p *ngFor="let i of local_currency; index as index_number; count as count_position"> {{index_number}}) {{i | currencyViewYaroslav: 'compair': 'bold' }} </p>
+  <p *ngFor="let i of local_currency; index as index_number; count as count_position" [innerHTML]="i | currencyViewYaroslav: 'compair': 'bold'"> </p>
 </div>
 
   <div class="form-field ">
@@ -61,14 +62,14 @@
 
 
 <ng-template #ElseBlock>
-  <ng-container *ngIf="local_currency.length==0 else OneCurrency">
-    <p>По апі з сайту!</p>
+  <ng-container *ngIf="local_currency.length==0 else othercurrency">
+    <p *ngFor="let i of net_object">Currency from web {{i.cc}} : {{i.rate}}</p>
   </ng-container>
 </ng-template>
 
-<ng-template #OneCurrency>
-  <ng-container *ngIf="local_currency.length==1 else EmptyBlock">
-    <p *ngFor="let i of local_currency">Currency {{i.cc}} : {{i.rate}}</p>
+<ng-template #othercurrency>
+  <ng-container *ngIf="net_object.length>0 else EmptyBlock">
+    <p *ngFor="let i of net_object">FROM API {{i.cc}} : {{i.rate}}</p>
   </ng-container>
 </ng-template>
 

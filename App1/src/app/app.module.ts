@@ -12,6 +12,8 @@ import { MatInputModule} from '@angular/material/input';
 import { MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CurrencyViewYaroslavPipe } from './currency-view-yaroslav.pipe';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { CurrencyViewYaroslavPipe } from './currency-view-yaroslav.pipe';
     MatInputModule,
     MatIconModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
