@@ -7,6 +7,8 @@ import { Component, Input, AfterViewInit } from '@angular/core';
 })
 export class CurrencyMainComponent implements AfterViewInit {
   @Input() local_currency: any ={}
+  @Input() net_object: any ={}
+
    value = 'Clear me';
    
    ngAfterViewInit() {

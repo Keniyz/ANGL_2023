@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from './currency.service';
 
 
@@ -8,17 +8,32 @@ import { CurrencyService } from './currency.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'My first step';
   word ='Конвертація валюти згідно НБУ';
   net_object: any=0;
- 
-  constructor(public api: CurrencyService) {
-    this.api.getCurrency().subscribe(data => this.net_object = data);
-    console.log("constructor=",this.net_object);
-  }
+  currency_object: any;
 
+  constructor(public api: CurrencyService) {
+
+  }
+ 
+  ngOnInit(): void {
+    this.getCurrency();
   
+  }
+  
+  getCurrency(){
+    this.api.getCurrency().subscribe((data: any) => {
+      this.net_object = data;
+    localStorage.setItem("data", JSON.stringify(data))
+    this.currency_object=JSON.parse(localStorage.getItem("data") || '{}')
+  
+    });
+
+    
+  }
+/*
   currency_object: any = [
     { 
     "r030":36,"txt":"Австралійський долар","rate":24.4351,"cc":"AUD","exchangedate":"15.05.2023"
@@ -204,5 +219,5 @@ export class AppComponent {
     "r030":964,"txt":"Паладій","rate":57259.11,"cc":"XPD","exchangedate":"15.05.2023"
      }
 ]
-
+*/
 }
