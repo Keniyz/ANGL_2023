@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from './currency.service';
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,7 +10,7 @@ export class AppComponent implements OnInit{
   title = 'My first step';
   word ='Конвертація валюти згідно НБУ';
   net_object: any=0;
-  currency_object: any;
+  currency_object: any=0;
 
   constructor(public api: CurrencyService) {
 
@@ -20,18 +18,14 @@ export class AppComponent implements OnInit{
  
   ngOnInit(): void {
     this.getCurrency();
-  
   }
   
   getCurrency(){
     this.api.getCurrency().subscribe((data: any) => {
       this.net_object = data;
-    localStorage.setItem("data", JSON.stringify(data))
-    this.currency_object=JSON.parse(localStorage.getItem("data") || '{}')
-  
+      localStorage.setItem("data", JSON.stringify(data))
+      this.currency_object=JSON.parse(localStorage.getItem("data") || '{}')
     });
-
-    
   }
 /*
   currency_object: any = [

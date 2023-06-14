@@ -13,6 +13,8 @@ import { MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CurrencyViewYaroslavPipe } from './currency-view-yaroslav.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { FormBlockComponent } from './form-block/form-block.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     CurrencyTopComponent,
     CurrencyMainComponent,
     CurrencyViewYaroslavPipe,
+    FormBlockComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

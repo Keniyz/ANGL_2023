@@ -3,11 +3,68 @@
   <p *ngFor="let i of local_currency; index as index_number; count as count_position" [innerHTML]="i | currencyViewYaroslav: 'compair': 'bold'"> </p>
 </div>
 
+
+<form [formGroup]="my_currency_form" (ngSubmit)="submited(my_currency_form)"> 
   <div class="form-field ">
     <div class="box">
       <mat-form-field appearance="fill">
         <mat-label>Тип валюти</mat-label>
-        <!-- <select matNativeControl required [formControl]="selectFormControl"> -->
+          <select  matNativeControl formControlName="typeofcurrency1" >
+            <option *ngFor="let name of net_object" value="{{name.cc}}">{{name.cc+" ["+name.txt+"]"}}</option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field class="input-form-field">
+        <mat-label>Введіть значення</mat-label>
+        <input matInput type="text" formControlName="currencyin" (change)="fieldType = 'currencyin'">
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <!---Кнопка Форми---->
+    <div class="box2">
+      <section>
+        <div class="example-button-row">
+          <div class="example-flex-container">
+            <div class="example-button-container">
+              <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                <mat-icon>refresh</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <div class="box">
+      <mat-form-field appearance="fill">
+        <mat-label>Тип валюти</mat-label>
+          <select matNativeControl formControlName="typeofcurrency2">
+            <option value="UAH">UAH</option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field class="input-form-field">
+        <mat-label>Введіть значення</mat-label>
+        <input matInput type="text"  formControlName="currencyout" (change)="fieldType = 'currencyout'" >
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+</div>
+</form>
+
+<!---
+<form #my_currency_form="ngForm" (ngSubmit)="submited(my_currency_form)"> 
+  <div class="form-field ">
+    <div class="box">
+      <mat-form-field appearance="fill">
+        <mat-label>Тип валюти</mat-label>
           <select matNativeControl >
           <option label="USD">USD</option>
           <option value="UAH">UAH</option>
@@ -42,7 +99,6 @@
     <div class="box">
       <mat-form-field appearance="fill">
         <mat-label>Тип валюти</mat-label>
-        <!-- <select matNativeControl required [formControl]="selectFormControl"> -->
           <select matNativeControl >
           <option label="USD">USD</option>
           <option value="UAH">UAH</option>
@@ -51,16 +107,16 @@
 
       <mat-form-field class="input-form-field">
         <mat-label>Введіть значення</mat-label>
-        <input matInput type="text" >
+        <input matInput type="text" disabled="true">
         <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
     </div>
 </div>
+</form>
 
-
-
+-->
 <ng-template #ElseBlock>
   <ng-container *ngIf="local_currency.length==0 else othercurrency">
     <p *ngFor="let i of net_object">Currency from web {{i.cc}} : {{i.rate}}</p>

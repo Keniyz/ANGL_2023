@@ -11,11 +11,5 @@ export class CurrencyService {
   getCurrency(){
       return this.http.get("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json");
   }
- /* currency_object: {}[]
 
-  constructor(public api:CurrencyService ){
-  this.currency_object=fetch("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").then(resp=>resp.json())
-}
-
-*/
 }
